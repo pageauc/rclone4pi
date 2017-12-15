@@ -7,9 +7,16 @@ if pidof -o %PPID -x "rclone-sync.sh"; then
     exit 1
 fi
 
-# IMPORTANT: Change folders to suit your sync requirements.
-localSyncDir="/home/pi/mydir"
-remoteSyncDir="mydir"
+# IMPORTANT: Change folders variables to suit your sync requirements.
+localSyncDir="/home/pi/rpi-sync"
+remoteSyncDir="rpi-sync"
 rcloneName="gdmedia"
 
-/usr/bin/rclone sync -v $remoteSyncDir $rcloneName:$remoteSyncDir
+if [ ! -d "$localSyncDir" ]; then
+    echo "ERROR - $localSyncDir Directory Not Found."
+    exit 1
+fi
+
+echo "Running /usr/bin/rclone sync -v $remoteSyncDir $rcloneName:$remoteSyncDir"
+
+/usr/bin/rclone sync -v $remoteSyncDir $rcloneName:/$remoteSyncDir

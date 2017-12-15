@@ -22,6 +22,10 @@ if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     rm -r rclone-v1.38-linux-arm
     wget -O rclone-sync.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh
     chmod +x rclone-sync.sh
+    cd ~
+    echo "Creating Folder rpi-sync"
+    mkdir -p rpi-sync
+    wget -O rpi-sync/Readme.md https://raw.github.com/pageauc/rclone4pi/master/Readme.md
 fi
 echo "rclone installed at /usr/bin/rclone"
 echo "-------------------------------------------------------------------------------"
@@ -48,7 +52,7 @@ echo "                       INSTRUCTIONS
 
 Example sync command make source identical to destination
 
-rclone sync -v /home/pi/mydir gdmedia:mydir
+rclone sync -v /home/pi/rpi-sync gdmedia:/rpi-sync
 
 To upgrade
 
