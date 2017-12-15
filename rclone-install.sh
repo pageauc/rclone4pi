@@ -1,5 +1,5 @@
 #!/bin/bash
-ver="9.5"
+ver="1.0"
 echo "$0 ver $ver written by Claude Pageau"
 
 if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
@@ -20,7 +20,7 @@ if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     echo "Deleting rclone.zip and rclone-v1.38-linux-arm folder"
     rm rclone.zip
     rm -r rclone-v1.38-linux-arm
-    wget -O rclone-sync.sh https://raw.github.com/pageauc/pi-timolo/master/source/rclone-sync.sh
+    wget -O rclone-sync.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh
     chmod +x rclone-sync.sh
 fi
 echo "rclone installed at /usr/bin/rclone"
@@ -32,7 +32,7 @@ echo "                       INSTRUCTIONS
   rclone config
 
   Follow rclone prompts. For more Details See
-  https://github.com/pageauc/pi-timolo/wiki/How-to-Setup-rclone
+  https://github.com/pageauc/rclone4pi/wiki/Home
 2 At name> prompt specify a reference name  eg gdmedia
 3 At storage> prompt Enter a remote storage number from List
 4 Select Auto Config, At Link: prompt, left click
@@ -48,7 +48,7 @@ echo "                       INSTRUCTIONS
 
 Example sync command make source identical to destination
 
-rclone sync -v /home/pi/pi-timolo/media/motion gdmedia:media/motion
+rclone sync -v /home/pi/mydir gdmedia:mydir
 
 To upgrade
 
