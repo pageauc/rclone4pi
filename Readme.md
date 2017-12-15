@@ -21,7 +21,7 @@ Using logged in putty SSH or RPI Terminal session execute commands below
     chmod +x rclone-sync.sh
     ./rclone-install.sh     # Run Install Script.  You may review script first.
 
-### For Detailed Instructions See [rclone4pi Wiki](https://github.com/pageauc/rclone4pi/wiki)
+## See [How to Configure a Remote Storage Service](https://github.com/pageauc/rclone4pi/wiki#how-to-configure-a-remote-storage-service)
 
 ## Description
 Rclone is a command line program to sync files and directories to and from many remote storage services.
