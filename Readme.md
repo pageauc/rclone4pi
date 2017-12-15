@@ -1,5 +1,5 @@
 ### An Easy rclone Install onto a Raspberry Pi Computer with Folder sync demo
-[See Wiki for Details](https://github.com/pageauc/rclone4pi/wiki)
+## [For Detailed Instructions See Wiki](https://github.com/pageauc/rclone4pi/wiki)
 
 ## Quick Install
 * Step 1 Use mouse left button to highlight curl command in code box below. mouse right click in highlighted area then select Copy.  
