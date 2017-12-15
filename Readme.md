@@ -1,5 +1,4 @@
-## rclone4pi Rclone 4 Raspberry Pi Computer
-#### An Easy rclone Install onto a Raspberry Pi Computer with Folder sync demo
+### An Easy rclone Install onto a Raspberry Pi Computer with Folder sync demo
 [See Wiki for Details](https://github.com/pageauc/rclone4pi/wiki)
 
 ## Quick Install
