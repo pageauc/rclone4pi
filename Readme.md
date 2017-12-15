@@ -28,10 +28,11 @@ Rclone is a command line program to sync files and directories to and from many 
 This utility can be used to sync raspberry pi computer folders/files to one or more remote services. For more information about rclone See
  https://rclone.org/ and/or https://github.com/ncw/rclone
 
- 
+----- 
 My Raspberry Pi YouTube Stuff https://www.youtube.com/user/pageaucp/search?query=raspberry+pi  
-My YouTube Channel https://www.youtube.com/user/pageaucp   
-Claude Pageau
+My YouTube Channel https://www.youtube.com/user/pageaucp    
+
+Claude Pageau  
 
 
 
