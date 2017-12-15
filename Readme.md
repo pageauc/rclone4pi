@@ -1,11 +1,21 @@
 ## rclone4pi Rclone 4 Raspberry Pi Computer
-#### An Easy rclone Install onto a Raspberry Pi Computer and Folder sync demo 
+#### An Easy rclone Install onto a Raspberry Pi Computer with Folder sync demo 
 
 ## Quick Install
 Copy and paste curl command below into logged in RPI putty SSH session
 
     curl -L https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh | bash
 
+or
+
+## Manual Install
+Using logged in putty SSH or RPI Terminal session execute commands below
+
+    cd ~
+    mkdir -p rpi-sync
+    wget -O rclone-sync.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh   
+    wget -O rpi-sync/Readme.md https://raw.github.com/pageauc/rclone4pi/master/Readme.md
+    
 ### For Usage Details See [rclone4pi Wiki](https://github.com/pageauc/rclone4pi/wiki)    
     
 ## Description
