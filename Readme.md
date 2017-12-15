@@ -3,7 +3,7 @@
 
 ## Quick Install
 **Step 1** Highlight curl command in code box below using mouse left button. Right click mouse in highlighted area and Copy.    
-**Step 2** On RPI putty or terminal session right click, select paste then Enter to download and run script.  
+**Step 2** On RPI putty SSH or terminal session right click, select paste then Enter to download and run script.  
 
     curl -L https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh | bash
 
