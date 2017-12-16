@@ -7,7 +7,7 @@
 
     curl -L https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh | bash
 
-This will install rclone-install.sh, rclone-sync.sh and create a subfolder rpi-sync in users home eg. /home/pi    
+Command above will install rclone-install.sh, rclone-sync.sh and create a subfolder rpi-sync in users home eg. /home/pi    
     
 ## Manual Install
 Using logged in putty SSH or RPI Terminal session execute commands below
