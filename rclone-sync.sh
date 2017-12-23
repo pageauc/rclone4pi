@@ -1,22 +1,30 @@
 #!/bin/bash
-echo "$0 ver 1.0  written by Claude Pageau"
+echo "$0 ver 1.1  written by Claude Pageau"
 
-# prevent multiple instances of rclone from running
-if pidof -o %PPID -x "rclone-sync.sh"; then
-    echo "WARN  - rclone sync Already Running. Only One Allowed."
-    exit 1
-fi
-
-# IMPORTANT: Change folders variables to suit your sync requirements.
-localSyncDir="/home/pi/rpi-sync"
-remoteSyncDir="rpi-sync"
+# Customize rclone sync variables Below
+# ---------------------------------------
 rcloneName="gdmedia"
+syncRoot="/home/pi"
+localSyncDir="rpi-sync"
+remoteSyncDir="syncdemo"
+# ---------------------------------------
 
-if [ ! -d "$localSyncDir" ]; then
-    echo "ERROR - $localSyncDir Directory Not Found."
+# Display Users Settings
+echo "
+---------- SETTINGS -------------
+rcloneName   : $rcloneName
+syncRoot     : $syncRoot
+localSyncDir : $localSyncDir
+remoteSyncDir: $remoteSyncDir
+---------------------------------"
+if pidof -o %PPID -x "$0"; then
+    echo "WARN  - $0 Already Running. Only One Allowed."
     exit 1
+else
+    echo "cd $syncRoot"
+    cd "$syncRoot"
+    echo "/usr/bin/rclone sync -v $localSyncDir $rcloneName:$remoteSyncDir"
+    echo "One Moment Please ..."
+    /usr/bin/rclone sync -v $localSyncDir $rcloneName:$remoteSyncDir
 fi
-
-echo "Running /usr/bin/rclone sync -v $remoteSyncDir $rcloneName:$remoteSyncDir"
-
-/usr/bin/rclone sync -v $remoteSyncDir $rcloneName:/$remoteSyncDir
+echo "$0 Bye ..."
