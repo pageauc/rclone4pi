@@ -1,5 +1,5 @@
 #!/bin/bash
-ver="1.2"
+ver="1.3"
 echo "$0 ver $ver written by Claude Pageau"
 
 if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
@@ -21,6 +21,14 @@ if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     rm -r rclone-tmp
     wget -O rclone-sync.sh https://raw.github.com/pageauc/pi-timolo/master/source/rclone-sync.sh
 fi
+
+if [ -f /usr/bin/rclone ]; then
+    echo "rclone is installed at /usr/bin/rclone"
+    rclone -V
+else
+    echo "ERROR - Problem Installing rclone. Please Investigate"
+fi
+
 echo "rclone installed at /usr/bin/rclone"
 echo "-------------------------------------------------------------------------------"
 echo "                 INSTRUCTIONS Google Drive Example
