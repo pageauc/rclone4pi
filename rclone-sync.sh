@@ -1,5 +1,6 @@
 #!/bin/bash
-echo "$0 ver 1.1  written by Claude Pageau"
+progName=$(basename -- "$0")
+echo "$progName ver 1.2  written by Claude Pageau"
 
 # Customize rclone sync variables Below
 # ---------------------------------------
@@ -17,14 +18,20 @@ syncRoot     : $syncRoot
 localSyncDir : $localSyncDir
 remoteSyncDir: $remoteSyncDir
 ---------------------------------"
-if pidof -o %PPID -x "$0"; then
-    echo "WARN  - $0 Already Running. Only One Allowed."
-    exit 1
+
+if pidof -o %PPID -x "$progName"; then
+    echo "WARN  - $progName Already Running. Only One Allowed."
 else
-    echo "cd $syncRoot"
-    cd "$syncRoot"
-    echo "/usr/bin/rclone sync -v $localSyncDir $rcloneName:$remoteSyncDir"
-    echo "One Moment Please ..."
-    /usr/bin/rclone sync -v $localSyncDir $rcloneName:$remoteSyncDir
+    if [ -f /usr/bin/rclone ]; then
+        echo "$STATUS rclone is installed at /usr/bin/rclone"
+        rclone -V
+        echo "cd $syncRoot"
+        cd "$syncRoot"
+        echo "/usr/bin/rclone sync -v $localSyncDir $rcloneName:$remoteSyncDir"
+        echo "One Moment Please ..."
+        /usr/bin/rclone sync -v $localSyncDir $rcloneName:$remoteSyncDir
+    else
+        echo "WARN  - /usr/bin/rclone Not Installed."
+    fi
 fi
-echo "$0 Bye ..."
+echo "$progName Bye ..."
