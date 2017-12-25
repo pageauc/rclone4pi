@@ -1,15 +1,14 @@
 #!/bin/bash
-ver="1.0"
+ver="1.2"
 echo "$0 ver $ver written by Claude Pageau"
 
 if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     echo "-------------------------------------------------------------------------------"
-    echo "Download https://downloads.rclone.org/rclone-v1.38-linux-arm.zip"
-    wget wget -O rclone.zip -q --show-progress https://downloads.rclone.org/rclone-v1.38-linux-arm.zip
-    echo "unzip rclone.zip to folder rclone-v1.38-linux-arm"
-    unzip -o rclone.zip
+    wget wget -O rclone.zip -q --show-progress https://downloads.rclone.org/rclone-current-linux-arm.zip
+    echo "unzip rclone.zip to folder rclone-tmp"
+    unzip -o -j -d rclone-tmp rclone.zip
     echo "Install files and man pages"
-    cd rclone-v1.38-linux-arm
+    cd rclone-tmp
     sudo cp rclone /usr/bin/
     sudo chown root:root /usr/bin/rclone
     sudo chmod 755 /usr/bin/rclone
@@ -17,20 +16,16 @@ if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     sudo cp rclone.1 /usr/local/share/man/man1/
     sudo mandb
     cd ..
-    echo "Deleting rclone.zip and rclone-v1.38-linux-arm folder"
+    echo "Deleting rclone.zip and Folder rclone-tmp"
     rm rclone.zip
-    rm -r rclone-v1.38-linux-arm
-    wget -O rclone-sync.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh
-    chmod +x rclone-sync.sh
-    cd ~
-    echo "Creating Folder rpi-sync"
-    mkdir -p rpi-sync
-    wget -O rpi-sync/Readme.md https://raw.github.com/pageauc/rclone4pi/master/Readme.md
+    rm -r rclone-tmp
+    wget -O rclone-sync.sh https://raw.github.com/pageauc/pi-timolo/master/source/rclone-sync.sh
 fi
 echo "rclone installed at /usr/bin/rclone"
 echo "-------------------------------------------------------------------------------"
-echo "                       INSTRUCTIONS
-1 You will be required to have a login account on the remote service
+echo "                 INSTRUCTIONS Google Drive Example
+                        
+1 You will be required to have a login account on the remote storage service
   Open putty SSH login session to RPI and execute command below
 
   rclone config
@@ -58,8 +53,7 @@ To upgrade
 
   ./rclone-install.sh upgrade
 
-Note: Instructions were tested with google drive.
-
+For more Details See https://github.com/pageauc/rclone4pi/wiki/Home
 Bye
 "
 
