@@ -28,9 +28,9 @@ if [ -f /usr/bin/rclone ]; then
     rclone -V
     mkdir -p rpi-sync
     cd rpi-sync
-    wget -O rclone-sync.sh https://raw.github.com/pageauc/master/rclone-sync.sh
-    wget -O Readme.md https://raw.github.com/pageauc/rclone4pi/master/Readme.md
-    wget -O rclone-install.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh
+    wget -O rclone-sync.sh -q https://raw.github.com/pageauc/master/rclone-sync.sh
+    wget -O Readme.md -q https://raw.github.com/pageauc/rclone4pi/master/Readme.md
+    wget -O rclone-install.sh -q https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh
     chmod +x *sh
 else
     echo "ERROR - Problem Installing rclone. Please Investigate"
