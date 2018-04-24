@@ -1,6 +1,8 @@
 #!/bin/bash
-ver="1.3"
+ver="1.4"
 echo "$0 ver $ver written by Claude Pageau"
+
+cd ~
 
 if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     echo "-------------------------------------------------------------------------------"
@@ -19,12 +21,17 @@ if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     echo "Deleting rclone.zip and Folder rclone-tmp"
     rm rclone.zip
     rm -r rclone-tmp
-    wget -O rclone-sync.sh https://raw.github.com/pageauc/pi-timolo/master/source/rclone-sync.sh
 fi
 
 if [ -f /usr/bin/rclone ]; then
     echo "rclone is installed at /usr/bin/rclone"
     rclone -V
+    mkdir -p rpi-sync
+    cd rpi-sync
+    wget -O rclone-sync.sh https://raw.github.com/pageauc/master/rclone-sync.sh
+    wget -O Readme.md https://raw.github.com/pageauc/rclone4pi/master/Readme.md
+    wget -O rclone-install.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh
+    chmod +x *sh
 else
     echo "ERROR - Problem Installing rclone. Please Investigate"
 fi
@@ -32,7 +39,7 @@ fi
 echo "rclone installed at /usr/bin/rclone"
 echo "-------------------------------------------------------------------------------"
 echo "                 INSTRUCTIONS Google Drive Example
-                        
+
 1 You will be required to have a login account on the remote storage service
   Open putty SSH login session to RPI and execute command below
 
