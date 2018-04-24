@@ -1,5 +1,5 @@
 #!/bin/bash
-ver="1.4"
+ver="1.5"
 echo "$0 ver $ver written by Claude Pageau"
 
 cd ~
@@ -27,7 +27,7 @@ if [ -f /usr/bin/rclone ]; then
     rclone -V
     mkdir -p rpi-sync
     cd rpi-sync
-    wget -O rclone-sync.sh -q https://raw.github.com/pageauc/master/rclone-sync.sh
+    wget -O rclone-sync.sh -q https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh
     wget -O Readme.md -q https://raw.github.com/pageauc/rclone4pi/master/Readme.md
     wget -O rclone-install.sh -q https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh
     chmod +x *sh
