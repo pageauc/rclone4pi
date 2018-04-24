@@ -3,7 +3,6 @@ ver="1.4"
 echo "$0 ver $ver written by Claude Pageau"
 
 cd ~
-
 if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     echo "-------------------------------------------------------------------------------"
     wget wget -O rclone.zip -q --show-progress https://downloads.rclone.org/rclone-current-linux-arm.zip
@@ -66,6 +65,7 @@ rclone sync -v /home/pi/rpi-sync gdmedia:/rpi-sync
 
 To upgrade
 
+  cd rpi-sync
   ./rclone-install.sh upgrade
 
 For more Details See https://github.com/pageauc/rclone4pi/wiki/Home
