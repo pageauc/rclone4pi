@@ -1,11 +1,11 @@
 #!/bin/bash
-ver="1.5"
+ver="1.6"
 echo "$0 ver $ver written by Claude Pageau"
 
 cd ~
 if [ ! -f /usr/bin/rclone -o ! -z "$1" ]; then
     echo "-------------------------------------------------------------------------------"
-    wget wget -O rclone.zip -q --show-progress https://downloads.rclone.org/rclone-current-linux-arm.zip
+    wget -O rclone.zip https://downloads.rclone.org/rclone-current-linux-arm.zip
     echo "unzip rclone.zip to folder rclone-tmp"
     unzip -o -j -d rclone-tmp rclone.zip
     echo "Install files and man pages"
@@ -27,9 +27,9 @@ if [ -f /usr/bin/rclone ]; then
     rclone -V
     mkdir -p rpi-sync
     cd rpi-sync
-    wget -O rclone-sync.sh -q https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh
-    wget -O Readme.md -q https://raw.github.com/pageauc/rclone4pi/master/Readme.md
-    wget -O rclone-install.sh -q https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh
+    wget -O rclone-sync.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-sync.sh
+    wget -O Readme.md https://raw.github.com/pageauc/rclone4pi/master/Readme.md
+    wget -O rclone-install.sh https://raw.github.com/pageauc/rclone4pi/master/rclone-install.sh
     chmod +x *sh
 else
     echo "ERROR - Problem Installing rclone. Please Investigate"
